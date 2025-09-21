@@ -1,0 +1,8 @@
+{
+  "label": "阶段二：复杂决策与学习",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "探索强化学习、搜索与更复杂的决策问题。"
+  }
+}
