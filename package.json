@@ -12,11 +12,11 @@
     "clean": "docusaurus clear"
   },
   "dependencies": {
-    "@docusaurus/core": "3.3.2",
-    "@docusaurus/preset-classic": "3.3.2",
-    "@docusaurus/plugin-sitemap": "3.3.2",
-    "@docusaurus/theme-common": "3.3.2",
-    "@docusaurus/theme-mermaid": "3.3.2",
+    "@docusaurus/core": "^3.8.1",
+    "@docusaurus/plugin-sitemap": "^3.8.1",
+    "@docusaurus/preset-classic": "^3.8.1",
+    "@docusaurus/theme-common": "^3.8.1",
+    "@docusaurus/theme-mermaid": "^3.8.1",
     "@giscus/react": "3.0.0",
     "clsx": "2.1.1",
     "prism-react-renderer": "2.4.0",
@@ -24,7 +24,7 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.3.2",
+    "@docusaurus/module-type-aliases": "^3.8.1",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "typescript": "5.4.5"

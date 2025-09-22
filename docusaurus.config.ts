@@ -7,10 +7,11 @@ const config: Config = {
   tagline: '系统理解人工智能，开启未来科技之门',
   favicon: 'img/favicon.ico',
 
-  url: 'https://ai101-course.github.io',
-  baseUrl: '/',
-  organizationName: 'ai101-course',
-  projectName: 'ai101-course.github.io',
+  url: 'https://huashanjian.github.io',
+  // 项目页部署到 https://huashanjian.github.io/ai101-website/
+  baseUrl: '/ai101-website/',
+  organizationName: 'huashanjian',
+  projectName: 'ai101-website',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
@@ -44,7 +45,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          editUrl: 'https://github.com/ai101-course/website/edit/main/',
+          editUrl: 'https://github.com/huashanjian/ai101-website/edit/main/',
         },
         blog: {
           showReadingTime: true,
@@ -62,17 +63,6 @@ const config: Config = {
           customCss: './src/css/custom.css',
         },
       } satisfies ClassicPreset['options'],
-    ],
-  ],
-
-  plugins: [
-    [
-      '@docusaurus/plugin-sitemap',
-      {
-        changefreq: 'weekly',
-        priority: 0.7,
-        trailingSlash: false,
-      },
     ],
   ],
 
@@ -120,7 +110,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/ai101-course/website',
+          href: 'https://github.com/huashanjian/ai101-website',
           label: 'GitHub',
           position: 'right',
         },
@@ -147,11 +137,11 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/ai101-course/website',
+              href: 'https://github.com/huashanjian/ai101-website',
             },
             {
               label: '讨论区',
-              href: 'https://github.com/ai101-course/website/discussions',
+              href: 'https://github.com/huashanjian/ai101-website/discussions',
             },
           ],
         },
@@ -189,10 +179,10 @@ const config: Config = {
       contextualSearch: true,
     },
     giscus: {
-      repo: 'ai101-course/website',
-      repoId: 'YOUR_REPO_ID',
-      category: 'General',
-      categoryId: 'YOUR_CATEGORY_ID',
+      repo: 'huashanjian/ai101-website',
+      repoId: 'R_kgDOP0FDYA',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDOP0FDYM4Cvvi2',
       mapping: 'pathname',
       reactionsEnabled: '1',
       emitMetadata: '0',
@@ -210,13 +200,17 @@ const config: Config = {
     },
   },
 
-  scripts: [
-    {
-      src: 'https://plausible.io/js/script.js',
-      defer: true,
-      'data-domain': 'ai101-course.github.io',
-    },
-  ],
+  scripts: (
+    process.env.NODE_ENV === 'production'
+      ? [
+          {
+            src: 'https://plausible.io/js/script.js',
+            defer: true,
+            'data-domain': 'huashanjian.github.io',
+          },
+        ]
+      : []
+  ) as any,
 };
 
 export default config;

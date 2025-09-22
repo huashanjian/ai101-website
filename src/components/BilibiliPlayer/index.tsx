@@ -25,6 +25,7 @@ const BilibiliPlayer: React.FC<BilibiliPlayerProps> = ({bvid, page = 1, title}) 
         frameBorder="no"
         allow="fullscreen"
         allowFullScreen
+        loading="lazy"
       />
     </div>
   );

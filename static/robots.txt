@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ai101-course.github.io/sitemap.xml
+
+
