@@ -1,9 +1,7 @@
-import React, {Suspense, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {useColorMode} from '@docusaurus/theme-common';
-// 重要：避免在 SSR 期间直接导入 @giscus/react，使用懒加载仅在浏览器端加载
-const LazyGiscus = React.lazy(() => import('@giscus/react'));
 
 function useDeferredVisible(): [React.RefObject<HTMLDivElement>, boolean] {
   const ref = useRef<HTMLDivElement>(null);
@@ -58,9 +56,13 @@ export default function GiscusComments(): JSX.Element | null {
       <h3 style={{marginTop: '1.5rem'}}>讨论区</h3>
       <div ref={mountRef} />
       <BrowserOnly>
-        {() => (visible ? (
-          <Suspense fallback={null}>
-            <LazyGiscus
+        {() => {
+          if (!visible) return null;
+          // 仅在浏览器端按需加载，避免 SSR 阶段出现 require.resolveWeak 问题
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          const Giscus = require('@giscus/react').default;
+          return (
+            <Giscus
               id="giscus-comments"
               repo={repo}
               repoId={repoId}
@@ -74,8 +76,8 @@ export default function GiscusComments(): JSX.Element | null {
               lang="zh-CN"
               loading="lazy"
             />
-          </Suspense>
-        ) : null)}
+          );
+        }}
       </BrowserOnly>
     </div>
   );
